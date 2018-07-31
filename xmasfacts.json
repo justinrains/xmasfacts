@@ -1,0 +1,101 @@
+'use strict';
+
+var Alexa = require('alexa-sdk');
+var APP_ID = undefined;
+
+var SKILL_NAME = 'Christmas Facts';
+var GET_FACT_MESSAGE = "Here is your Christmas fact: ";
+var HELP_MESSAGE = 'You can say tell me a christmas fact, or, you can say stop...';
+var HELP_REPROMPT = 'What can I help you with?';
+var STOP_MESSAGE = 'Goodbye!';
+
+var data = [
+  'Christmas lights were invented in 1882 by Edward Johnson',
+  'Alabama was the first state in the United States to officially recognize Christmas in 1836',
+  'The first printed reference to a Christmas tree was in 1531 in Germany.',
+  'In 1962, the first Christmas postage stamp was issued in the United States.',
+  'Christmas purchases account for one sixth of all retail sales in the united states',
+  'Christmas wasn’t declared an official holiday in the United States until June 26, 1870.',
+  'Oklahoma was the last U.S. state to declare Christmas a legal holiday, in 1907',
+  'Alabama was the first state in the United States to officially recognize Christmas in 1836.',
+  'Christmas trees usually grow for about 15 years before they are sold.',
+  'Christmas trees have been sold in the U.S. since 1850',
+  'The word Noel entered the English language in the late 1300s. It originated from the Latin word natalis which means day of birth',
+  'All the gifts in the Twelve Days of Christmas would equal 364 gifts',
+  'Each year more than 3 billion Christmas cards are sent in the U.S. alone',
+  'Jingle Bells was originally written by James Pierpont in 1857, for Thanksgiving not Christmas. It was originally called One Horse Open Sleigh',
+  'The worlds biggest snowman was 113 feet tall and was built in Maine',
+  'Norwegian scientists have hypothesized that Rudolph\'s red nose is probably the result of a parasitic infection of his respiratory system',
+  'One of the reasons we leave milk and cookies for Santa is because Dutch kids would leave food and drink for St. Nicholas on his feast day.',
+  'In the  18th century Christmas trees began being decorated with candles.',
+  'Electric Christmas tree lights were first used in 1895.',
+  'If you received all the gifts from the song "The Twelve Days of Christmas" you would have 364 presents.',
+  'There are 3 towns in the Us that are named Santa Claus. One in Georgia, one in Arizona and one in Indiana.',
+  'Christmas trees are also known as the Yule-tree.',
+  'It is believed that Santa\'s elves work all year long in Santa’s workshop making toys for children all over the world.',
+  'Rudolph is considered Santa\'s 9th reindeer.',
+  'All of Santa\'s Elves are under 4ft tall.',
+  'Christmas decorations that are popular today include Christmas trees, Christmas lights, wreaths, garland, holly, mistletoe, and nativity scenes.',
+  'The first evidence of a Christmas tree is from a pamphlet that dates back to 1570.',
+  'In order for Santa to visit all the homes on Christmas Eve he would have to visit 822 homes each second.',
+  'The world\'s biggest snowman was 113 feet tall and was built in Maine.',
+  'The best-selling Christmas song ever is White Christmas by Bing Crosby.', 
+  'Popular boy elf names are: Jingle, Buddy,Charlie and Popular girl elf names are Nellie, Elfie and Trixie'
+];
+
+exports.handler = function(event, context, callback) {
+    var alexa = Alexa.handler(event, context);
+    alexa.APP_ID = APP_ID;
+    alexa.registerHandlers(handlers);
+    alexa.execute();
+};
+
+var handlers = {
+    'LaunchRequest': function () {
+        this.emit('GetNewFactIntent');
+    },
+    'GetNewFactIntent': function () {
+        var factArr = data;
+        var factIndex = Math.floor(Math.random() * factArr.length);
+        var randomFact = factArr[factIndex];
+        var speechOutput = GET_FACT_MESSAGE + randomFact;
+        this.emit(':tellWithCard', speechOutput, SKILL_NAME, randomFact)
+    },
+    'AMAZON.HelpIntent': function () {
+        var speechOutput = HELP_MESSAGE;
+        var reprompt = HELP_REPROMPT;
+        this.emit(':ask', speechOutput, reprompt);
+    },
+    'AMAZON.CancelIntent': function () {
+        this.emit(':tell', STOP_MESSAGE);
+    },
+    'AMAZON.StopIntent': function () {
+        this.emit(':tell', STOP_MESSAGE);
+    }
+};
+
+
+
+{
+  "intents": [
+    {
+      "intent": "GetNewFactIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}
+/*
+GetNewFactIntent 
+
+Alexa, ask christmas fact to tell me a christmas fact
+give me a christmas fact
+i want a christmas fact
+*/
