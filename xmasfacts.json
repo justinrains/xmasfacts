@@ -22,6 +22,7 @@ var data = [
   'Christmas trees have been sold in the U.S. since 1850',
   'The word Noel entered the English language in the late 1300s. It originated from the Latin word natalis which means day of birth',
   'All the gifts in the Twelve Days of Christmas would equal 364 gifts',
+  'If you received all the gifts from the song "The Twelve Days of Christmas" you would have 364 presents.',
   'Each year more than 3 billion Christmas cards are sent in the U.S. alone',
   'Jingle Bells was originally written by James Pierpont in 1857, for Thanksgiving not Christmas. It was originally called One Horse Open Sleigh',
   'The worlds biggest snowman was 113 feet tall and was built in Maine',
@@ -29,7 +30,6 @@ var data = [
   'One of the reasons we leave milk and cookies for Santa is because Dutch kids would leave food and drink for St. Nicholas on his feast day.',
   'In the  18th century Christmas trees began being decorated with candles.',
   'Electric Christmas tree lights were first used in 1895.',
-  'If you received all the gifts from the song "The Twelve Days of Christmas" you would have 364 presents.',
   'There are 3 towns in the Us that are named Santa Claus. One in Georgia, one in Arizona and one in Indiana.',
   'Christmas trees are also known as the Yule-tree.',
   'It is believed that Santa\'s elves work all year long in Santa’s workshop making toys for children all over the world.',
@@ -40,6 +40,7 @@ var data = [
   'In order for Santa to visit all the homes on Christmas Eve he would have to visit 822 homes each second.',
   'The world\'s biggest snowman was 113 feet tall and was built in Maine.',
   'The best-selling Christmas song ever is White Christmas by Bing Crosby.', 
+  'Christmas lights were invented in 1882 by Edward Johnson.',
   'Popular boy elf names are: Jingle, Buddy,Charlie and Popular girl elf names are Nellie, Elfie and Trixie'
 ];
 
